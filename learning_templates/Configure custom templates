@@ -1,0 +1,43 @@
+1.  //// in views.py add context dictionary and context_dict in render()
+def index(request):
+    context_dict = {'text':'hello world','number':100}
+    return render(request,'basic_app/index.html',context_dict)
+
+2. in web page 
+
+<h1>{{ text }}</h1>
+<h1>{{ number }}</h1>
+
+///// CNFIGURE CUSTOM TEMPLATES ///
+1. Create <templatetag> folder in <app> folder
+2. In <templatetag> folder create __init__.py file ---- leave it empty
+3. In <templatetag> folder create <my_filter.py>
+4. Configure <my_filter.py>
+    example:
+
+from django import template
+
+register = template.Library()
+
+@register.filter(name='cut')
+def cut(value, arg):
+    """
+    this cuts out all values of the "arg" from the string
+    """
+    return value.replace(arg, '')
+
+5. In the web page add filter
+example:
+
+{% extends "basic_app/base.html" %}
+
+{% load my_templates %}
+
+    {% block body_block %}
+
+        <h1>Welcome to the INDEX</h1>
+
+        <h1>{{ text|cut:'world' }}</h1>
+        <h1>{{ number|add:"99" }}</h1>
+
+    {% endblock %}

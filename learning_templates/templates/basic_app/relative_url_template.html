@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Welcome to URL TEMPLATES</h1>
+
+    <!-- links to app_name in urls.py -->
+    <!-- 'other' is name of path in urls.py -->
+    <a href="{% url 'basic_app:other' %}">THE OTHER PAGE</a> 
+    <a href="{% url 'admin:index' %}">LINK TO ADMIN</a> 
+    <!-- the admin:index link needs running <python manage.py migrate> cmd -->
+    <a href="{% url 'index' %}">HOME</a> 
+    
+</body>
+
+</html>

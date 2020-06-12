@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+
+{% extends "basic_app/base.html" %}
+
+{% load my_filters %}
+
+    {% block body_block %}
+
+        <h1>Welcome to the INDEX</h1>
+
+        <h1>{{ text|cut:'world' }}</h1>
+        <h1>{{ number|add:"99" }}</h1>
+
+    {% endblock %}

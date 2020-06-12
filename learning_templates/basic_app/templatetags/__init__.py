@@ -1,0 +1,1 @@
+# this file tells python to treat templatetag as module
